@@ -1039,6 +1039,30 @@ function howStopCode(how)
  {
    readThatBatteryLevel(callback);
  }
+
+ ext.smh1 = function(tone, duration, callback)
+  {
+      var freq = frequencies[tone];
+      console_log("playTone " + tone + " duration: " + duration + " freq: " + freq);
+      var volume = 100;
+      var volString = getPackedOutputHexString(volume, 1);
+      var freqString = getPackedOutputHexString(freq, 2);
+      var durString = getPackedOutputHexString(duration, 2);
+      
+      var toneCommand = createMessage(DIRECT_COMMAND_PREFIX + PLAYTONE + volString + freqString + durString);
+
+      addToQueryQueue([TONE_QUERY, duration, callback, toneCommand]);
+  }
+
+
+
+
+
+
+
+
+
+
  
  function readThatBatteryLevel(callback)
  {
@@ -1116,6 +1140,7 @@ function UIRead(port, subtype, callback)
            ['R', 'remote button %m.whichInputPort',                     'readRemoteButtonPort',   '1'],
           // ['R', 'gyro  %m.gyroMode %m.whichInputPort',                 'readGyroPort',  'angle', '1'],
            ['R', 'motor %m.motorInputMode %m.whichMotorIndividual',     'readFromMotor',   'position', 'B'],
+           ['w', 'play frequency %n duration %n ms',                     'smh1',          'c5', 500],
 
        //    ['R', 'battery level',   'readBatteryLevel'],
        //  [' ', 'reconnect', 'reconnectToDevice'],
