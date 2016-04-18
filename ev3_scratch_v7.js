@@ -1140,7 +1140,7 @@ function UIRead(port, subtype, callback)
            ['R', 'remote button %m.whichInputPort',                     'readRemoteButtonPort',   '1'],
           // ['R', 'gyro  %m.gyroMode %m.whichInputPort',                 'readGyroPort',  'angle', '1'],
            ['R', 'motor %m.motorInputMode %m.whichMotorIndividual',     'readFromMotor',   'position', 'B'],
-           ['w', 'play frequency %n duration %n ms',                     'smh1',          'c5', 500],
+           ['w', 'play frequency %n duration %n ms SMH1',                     'smh1',          'c5', 500],
 
        //    ['R', 'battery level',   'readBatteryLevel'],
        //  [' ', 'reconnect', 'reconnectToDevice'],
