@@ -1373,7 +1373,7 @@ function(ext)
               ['h', 'when IR remote %m.buttons pressed port %m.whichInputPort', 'whenRemoteButtonPressed','Top Left', '1'],
               ['R', 'button pressed %m.whichInputPort',                    'readTouchSensorPort',   '1'],
               ['w', 'play note %m.note duration %n ms',                    'playTone',         'C5', 500],
-              ['w', 'play frequency %n duration %n ms',                    'playFreq',         '262', 500],
+              ['w', 'play frequency %n duration %n ms',                    'playFreq',         '262', 1000],
               ['R', 'light sensor %m.whichInputPort %m.lightSensorMode',   'readColorSensorPort',   '1', 'color'],
               //    ['w', 'wait until light sensor %m.whichInputPort detects black line',   'waitUntilDarkLinePort',   '1'],
               ['R', 'measure distance %m.whichInputPort',                  'readDistanceSensorPort',   '1'],
