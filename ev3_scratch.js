@@ -1362,19 +1362,7 @@ function(ext)
         readBatteryLevel(callback);
      }
 
-     ext.smh1 = function(tone, duration, callback)
-  {
-      var freq = frequencies[tone];
-      console_log("playTone " + tone + " duration: " + duration + " freq: " + freq);
-      var volume = 100;
-      var volString = getPackedOutputHexString(volume, 1);
-      var freqString = getPackedOutputHexString(freq, 2);
-      var durString = getPackedOutputHexString(duration, 2);
-      
-      var toneCommand = createMessage(DIRECT_COMMAND_PREFIX + PLAYTONE + volString + freqString + durString);
-
-      addToQueryQueue([TONE_QUERY, duration, callback, toneCommand]);
-  }
+     
 
      
      // Block and block menu descriptions
@@ -1393,9 +1381,8 @@ function(ext)
               //    ['w', 'wait until light sensor %m.whichInputPort detects black line',   'waitUntilDarkLinePort',   '1'],
               ['R', 'measure distance %m.whichInputPort',                  'readDistanceSensorPort',   '1'],
               ['R', 'remote button %m.whichInputPort',                     'readRemoteButtonPort',   '1'],
-              // ['R', 'gyro  %m.gyroMode %m.whichInputPort',                 'readGyroPort',  'angle', '1'],
+              ['R', 'gyro  %m.gyroMode %m.whichInputPort',                 'readGyroPort',  'angle', '1'],
               ['R', 'motor %m.motorInputMode %m.whichMotorIndividual',     'readFromMotor',   'position', 'A'],
-              ['cl', 'play frequency %n duration %n ms SMH1',                     'smh1',          'c5', 500],
 
               //    ['R', 'battery level',   'readBatteryLevel'],
               //  [' ', 'reconnect', 'reconnectToDevice'],
